@@ -1,6 +1,7 @@
 module.exports = (server) => {
     const postController = require('../controllers/postController');
-    server.route('posts')
-    .get(postController.listenAllPosts)
+
+    server.route('/posts')
+    .get(postController.listenAllPosts);
     // .post(postController.createAPost);
 }
