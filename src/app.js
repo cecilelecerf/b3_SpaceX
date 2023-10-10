@@ -14,7 +14,7 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 const postRoute = require('./routes/postRoute');
-postRoute(app);
+app.use('/posts', postRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
