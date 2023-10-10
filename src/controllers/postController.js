@@ -67,12 +67,24 @@ exports.listenPost = async (req,res) => {
     }
 }
 
-exports.updateAPost = async(req, res) => {
+exports.patchAPost = async(req, res) => {
     const updatePost = new Post(req.body);
     try{
-        const post = await Post.findByIdAndUpdate(req.params.id_post, {title : updatePost.title, content : updatePost.content});
+        const post = await Post.findByIdAndUpdate(req.params.id_post, {title : updatePost.title, content : updatePost.content}, {new: true});
         res.status(200);
-        res.json(updatePost);
+        res.json(post);
+    } catch(error){
+        res.status(500);
+        console.log(error);
+        res.json({message : "Error server."})
+    }   
+}
+
+exports.putAPost = async(req, res) => {
+    try{
+        const post = await Post.findByIdAndUpdate(req.params.id_post, req.body, {new: true});
+        res.status(200);
+        res.json(post);
     } catch(error){
         res.status(500);
         console.log(error);
