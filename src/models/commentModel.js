@@ -1,4 +1,4 @@
-const mongoose = require("mongooser");
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 let commentSchema = new Schema({
