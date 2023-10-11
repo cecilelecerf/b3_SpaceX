@@ -28,8 +28,14 @@ exports.createAComment = async (req,res) => {
 exports.listenAComment = async (req,res) => {
     try{
         const comment = await Comment.findById(req.params.id_comment);
-        res.status(200);
-        res.json(comment);
+        if(comment===null){
+            res.status(404);
+            res.json({message: "Not found a comment with this id"})
+        }
+        else{
+            res.status(200);
+            res.json(comment);
+        }
     } catch (error) {
         res.status(500);
         res.json({message : "Error server"});
