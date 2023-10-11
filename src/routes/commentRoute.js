@@ -5,9 +5,12 @@ const commentController = require('../controllers/commentController');
 router
     .route("/")
         .get(commentController.listenAllComments)
-        .post(commentController.createAComment)
+        .post(commentController.createAComment);
 
+router
     .route("/:id_comment")
         .get(commentController.listenAComment)
         .put(commentController.updateAComment)
-        .delete(commentController.deleteAComment)
+        .delete(commentController.deleteAComment);
+
+module.exports = router;
