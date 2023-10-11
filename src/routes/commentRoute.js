@@ -3,12 +3,12 @@ const router = express.Router();
 const commentController = require('../controllers/commentController');
 
 router
-    .route("/")
+    .route("/posts/:id_post/comments")
         .get(commentController.listenAllComments)
         .post(commentController.createAComment);
 
 router
-    .route("/:id_comment")
+    .route("/comments/:id_comment")
         .get(commentController.listenAComment)
         .put(commentController.updateAComment)
         .delete(commentController.deleteAComment);
