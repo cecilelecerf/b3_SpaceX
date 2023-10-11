@@ -6,3 +6,6 @@ Using Node, express, mangoose and mangoDB creating an API with a format MVC
 
 ## Start
 - docker compose up -d
+
+
+By cecoule
