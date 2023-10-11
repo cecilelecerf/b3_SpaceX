@@ -13,6 +13,9 @@ let commentSchema = new Schema({
     created_at:{
         type: Date,
         default : Date.now
+    }, 
+    post_id:{
+        type: String
     }
 })
 
